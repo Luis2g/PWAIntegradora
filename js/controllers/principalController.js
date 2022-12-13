@@ -30,7 +30,7 @@ hoss.controller('principalController', ['$scope', '$http', '$location', function
             consultarHabitacionesRecamarera()
         }).catch( err => {
             console.log('There has been an error trying to get the session from the memory ', err);
-            location.replace('/login');
+            location.replace('./login');
         });
     })();
 

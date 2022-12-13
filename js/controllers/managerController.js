@@ -16,7 +16,7 @@ hoss.controller('managerController', ['$scope', '$http', '$location', function($
 
         }).catch( err => {
             console.log('There has been an error trying to get the session from the memory ', err);
-            location.replace('/login');
+            location.replace('./login');
         });
     })();
 

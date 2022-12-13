@@ -26,7 +26,7 @@ function($scope, $http) {
 
     $scope.switch = {
         toMainView: () => {
-            $location.path('/');
+            $location.path('./');
         },
         toLandingPage: () => {
             $location.path('/landingPage');
@@ -36,7 +36,7 @@ function($scope, $http) {
         },
         toLogin: () => {
             localStorage.clear();
-            window.location.replace('/login');
+            window.location.replace('./login');
         },
     };
     
@@ -81,7 +81,7 @@ function($scope, $http) {
 
     $scope.logout = () => {
         localStorage.clear();
-        window.location.replace('/login');
+        window.location.replace('./login');
     }
 
 }])
