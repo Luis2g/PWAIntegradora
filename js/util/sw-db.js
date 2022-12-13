@@ -1,8 +1,8 @@
 const dbUno = new PouchDB("observations");
 const dbDos = new PouchDB("rooms");
 
-const serverApiSwForObservation = 'http://localhost:8000/api/observations/store';
-const serverApiSwForRoomUpdate = 'http://localhost:8000/api/rooms/update/';
+const serverApiSwForObservation = 'https://hossservices-production.up.railway.app/api/observations/store';
+const serverApiSwForRoomUpdate = 'https://hossservices-production.up.railway.app/api/rooms/update/';
 
 
 function saveObservation(observation){
