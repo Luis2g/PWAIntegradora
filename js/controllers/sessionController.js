@@ -60,9 +60,9 @@ function($scope, $http) {
             }).then( response => {
     
                 if(response.data.data.role_id === 2){
-                    window.location.replace("/");
+                    window.location.replace("./");
                 }else{
-                    window.location.replace("/#!/administracion");
+                    window.location.replace("./#!/administracion");
                 }
     
             }).catch( err => {
