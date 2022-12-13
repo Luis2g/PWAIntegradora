@@ -4,7 +4,7 @@
     "name": "Hotel Services",
     "short_name": "HOSS",
     "display": "standalone",
-    "start_url": "./index.html",
+    "start_url": "./login.html",
     "theme_color": "#F76C2F",
     "background_color": "#F76C2F",
     "description": "Aplicación para pasar",
