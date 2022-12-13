@@ -1,0 +1,86 @@
+<div class="container">
+  <!-- Encabezado con el titulo -->
+  <div class="row">
+    <div class="col-12 mt-3">
+      <h1>Habitaciones</h1>
+    </div>
+  </div>
+
+  <!-- Cuerpo principal -->
+  <div class="row" ng-init="consultarTodasLasHabitaciones()">
+
+    <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 col-12 mt-2 mb-2"
+      ng-repeat="habitacion in habitaciones">
+
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center" ng-bind="'Numero: ' +  habitacion.number"></h5>
+          <hr>
+          <div class="row mt-3">
+
+            <div class="col-6">
+              <h5 class="text-muted" ng-bind="'Edificio: ' + habitacion.building_id"></h5>
+              <h5 class="text-muted" ng-bind="'Piso: ' + habitacion.floor"></h5>
+            </div>
+
+            <div class="col-6">
+
+              <div class="col-12 text-center">
+                <span ng-if="habitacion.status_id === 3" class="badge text-bg-success info_badge" >!Disponible¡</span>
+                <span ng-if="habitacion.status_id === 4" class="badge text-bg-warning info_badge" >Limpia</span>
+                <span ng-if="habitacion.status_id == 5" class="badge text-bg-danger info_badge" >Sucia</span>
+                <span ng-if="habitacion.status_id == 6" class="badge text-bg-warning info_badge " >Incidente</span>
+                <span ng-if="habitacion.status_id == 8" class="badge text-bg-warning info_badge " >Bloqueada</span>
+                <span ng-if="habitacion.status_id == 7" class="badge text-bg-warning info_badge " style="background-color: #2EE847!important;" >Ocupada</span>
+              </div>
+
+            </div>
+
+            <div class="col-12">
+
+              <div class="col-12 text-center">
+                <button ng-click="maskAs(habitacion, 3)" ng-if="habitacion.status_id === 4" class="btn btn-outline-success">Aprovar</button>
+                <button ng-click="maskAs(habitacion, 5)" ng-if="habitacion.status_id === 4" class="btn btn-outline-danger">Desaprobar</button>
+                <button ng-click="maskAs(habitacion, 7)" ng-if="habitacion.status_id === 3" class="btn btn-outline-success">Ocupada</button>
+                <button ng-click="maskAs(habitacion, 5)" ng-if="habitacion.status_id === 7" class="btn btn-outline-success">Sucia</button>
+                <button ng-click="maskAs(habitacion, 3)" ng-if="habitacion.status_id === 8" class="btn btn-outline-success">Desbloquear</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="incidente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Incidente</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 class="text-center">Incidente en habitación 2 del edificio 4</h6>
+        <hr>
+
+        <p style="text-align: justify;">Aquí va la observación del incidente que menciono el administrador, por ello se
+          necesita atendender el incidente.</p>
+        <div class="row">
+          <div class="col-12 text-center">
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-warning" style="color: white;">Revalidar</button>
+      </div>
+    </div>
+  </div>
+</div>

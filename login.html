@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hoss" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link rel="icon" type="image/x-icon" href="./images/icons/72x72.png">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="manifest" href="/manifest.json" />
+</head>
+<body ng-controller="sessionController" >
+
+    <div class="container">
+        <!-- Encabezado con el titulo -->
+        <div class="row">
+            <div class="col-12 mt-3 text-center mt-5 mb-2">
+                <h1>HOSS</h1>
+            </div>
+        </div>
+
+        <!-- Cuerpo principal -->
+        <div class="row justify-content-center">
+
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-6 col-sm-12 col-xs-12 col-12 mt-5 mb-2">
+                <div class="card h-100" >
+                    <div class="card-body">
+                      <h3 class="card-title text-center mt-4">Inicio de sesión</h3>
+                      <div class="form-floating mb-3 mt-5">
+                        <input ng-model="user.email " type="email" class="form-control" id="correo" placeholder="name@example.com">
+                        <label for="correo">Correo</label>
+                      </div>
+                      <div class="form-floating mb-5">
+                        <input ng-model="user.password" type="password" class="form-control" id="contrasena" placeholder="Password">
+                        <label for="contrasena">Contraseña</label>
+                      </div>
+                      <div class="col-12 text-center mb-2">
+                        <a ng-click="login()" class="btn btn-outline-success" style="font-size: 15px;">Ingresar</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="./js/imports/bootstrap.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/js/imports/angular.min.js" ></script>
+    <script src="/js/imports/angular-route.min.js" ></script>
+    <script src="/js/app.js" ></script>
+    <script src="/js/controllers/sessionController.js"></script>
+
+</body>
+</html>
