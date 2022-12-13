@@ -1,7 +1,7 @@
 importScripts('https://cdn.jsdelivr.net/npm/pouchdb@7.3.1/dist/pouchdb.min.js')
 importScripts('./js/util/sw-db.js');
 
-const STATIC_CACHE_NAME = 'static-cache-v1.1';
+const STATIC_CACHE_NAME = 'static-cache-v1.2';
 const INMUTABLE_CACHE_NAME = 'inmutable-cache-v1.1';
 const DYNAMIC_CACHE_NAME = 'dynamic-cache-v1.1';
 
@@ -67,6 +67,18 @@ self.addEventListener('install', event => {
 
 });
 
+self.addEventListener('activate', (event) => {
+    const promDeleteCaches = caches.keys().then((items) => {
+        items.forEach((key) => {
+            if (key !== STATIC_CACHE_NAME && key.includes('static')) {
+                return caches.delete(key);
+            }
+        });
+    });
+    event.waitUntil(promDeleteCaches);
+});
+
+
 
 self.addEventListener('fetch', (event) => {
 
@@ -90,7 +102,7 @@ self.addEventListener('fetch', (event) => {
 
         event.respondWith(respuesta);
 
-    } else if(event.request.clone().method === 'PUT'){
+    } else if (event.request.clone().method === 'PUT') {
 
         const respuesta = fetch(event.request.clone())
             .then(respWeb => {
@@ -113,10 +125,9 @@ self.addEventListener('fetch', (event) => {
 
         let resp;
         //This is for all the gets 
-        if(!event.request.url.includes('api') ){
-
-            resp = caches.match(event.request); 
-        }else{
+        if (!event.request.url.includes('api')) {
+            resp = caches.match(event.request);
+        } else {
             resp = fetch(event.request).then((respWeb) => {
                 if (!respWeb) {
                     return caches.match(event.request);
@@ -128,23 +139,23 @@ self.addEventListener('fetch', (event) => {
                 return respWeb.clone();
             }).catch(() => {
                 let responseOffline;
-                
-                responseOffline = caches.match(event.request).then( response => {
 
-                    if(!response){
+                responseOffline = caches.match(event.request).then(response => {
+
+                    if (!response) {
 
                         let data = [];
 
                         const respBodyOffLine = {
                             data,
-                            code : 12164,
+                            code: 12164,
                             message: 'No se ha podido establecer conexión a internet'
                         }
-                
+
                         response = new Response(
                             JSON.stringify(respBodyOffLine),
                             {
-                                headers:{
+                                headers: {
                                     'Content-Type': 'application/json'
                                 }
                             }
@@ -172,7 +183,17 @@ self.addEventListener('sync', event => {
     event.waitUntil(respPromSync);
 });
 
-
+self.addEventListener('activate', (event) => {
+    const promDeleteCaches = caches.keys().then((items) => {
+      items.forEach((key) => {
+        if (key !== STATIC_CACHE_NAME && key.includes('static')) {
+          return caches.delete(key);
+        }
+      });
+    });
+    event.waitUntil(promDeleteCaches);
+  });
+  
 
 
 
