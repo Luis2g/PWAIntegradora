@@ -1,7 +1,7 @@
 importScripts('https://cdn.jsdelivr.net/npm/pouchdb@7.3.1/dist/pouchdb.min.js')
 importScripts('./js/util/sw-db.js');
 
-const STATIC_CACHE_NAME = 'static-cache-v1.2';
+const STATIC_CACHE_NAME = 'static-cache-v1.3';
 const INMUTABLE_CACHE_NAME = 'inmutable-cache-v1.1';
 const DYNAMIC_CACHE_NAME = 'dynamic-cache-v1.1';
 
