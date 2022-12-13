@@ -42,6 +42,9 @@ function($scope, $http) {
     
     $scope.login = () => {
 
+        document.getElementById("btnLoginOff").setAttribute('style', 'display: none');
+        document.getElementById("btnLoginOn").setAttribute('style', 'border-radius : 1rem; width: 100%; display: block');
+
         $http({
             method: "POST",
             url: urlService + 'login',
@@ -66,10 +69,14 @@ function($scope, $http) {
                 }
     
             }).catch( err => {
+                document.getElementById("btnLoginOff").setAttribute('style', 'border-radius : 1rem; width: 100%; display: block');
+                document.getElementById("btnLoginOn").setAttribute('style', 'display : none');
                 console.log('There has been an error trying to get the info user ', err);
             });
 
         }).catch( err => {
+            document.getElementById("btnLoginOff").setAttribute('style', 'border-radius : 1rem; width: 100%; display: block');
+            document.getElementById("btnLoginOn").setAttribute('style', 'display : none');
             console.log('There has been an error trying to log in', err);
             swal({
                 title: "Ops!",
