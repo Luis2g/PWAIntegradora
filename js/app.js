@@ -8,15 +8,15 @@ hoss.config(['$routeProvider', function($routeProvider){
 
     $routeProvider
         .when('/', {
-            templateUrl: '/views/general/principal.html',
+            templateUrl: 'https://luis2g.github.io/PWAIntegradora/views/general/principal.html',
             controller: 'principalController'
         })
         .when('/administracion', {
-            templateUrl: '/views/users/admin/roomAdministration.html',
+            templateUrl: 'https://luis2g.github.io/PWAIntegradora/views/users/admin/roomAdministration.html',
             controller: 'managerController'
         })
         .when('/login', {
-            templateUrl: '/views/login.html',
+            templateUrl: 'https://luis2g.github.io/PWAIntegradora/views/login.html',
             controller: 'sessionController'
         })
        
