@@ -115,8 +115,6 @@ self.addEventListener('fetch', (event) => {
         //This is for all the gets 
         if(!event.request.url.includes('api') ){
 
-            console.log(event.request.url);
-
             resp = caches.match(event.request); 
         }else{
             resp = fetch(event.request).then((respWeb) => {

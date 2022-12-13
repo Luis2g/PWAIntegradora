@@ -2,7 +2,7 @@ hoss.controller('sessionController', ['$scope', '$http',
 function($scope, $http) {
     
     $http.defaults.headers.post["Content-Type"] = "application/json";
-    const urlService = 'http://127.0.0.1:8000/api/';
+    const urlService = 'https://hossservices-production.up.railway.app/api/';
     $scope.user = "";
 
     

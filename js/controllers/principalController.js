@@ -13,7 +13,7 @@ hoss.controller('principalController', ['$scope', '$http', '$location', function
     $scope.photoStillToBeToken = true;
     $scope.logs = [];
     $scope.appOffline = false;
-    const urlService = 'http://127.0.0.1:8000/api/';
+    const urlService = 'https://hossservices-production.up.railway.app/api/';
 
 
     (() => {

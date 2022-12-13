@@ -1,7 +1,7 @@
 hoss.controller('managerController', ['$scope', '$http', '$location', function($scope,$http, $location) {
 
     const formator = new Intl.DateTimeFormat('es-MX', { dateStyle: 'full', timeStyle: 'medium' });
-    const urlService = 'http://127.0.0.1:8000/api/';
+    const urlService = 'https://hossservices-production.up.railway.app/api/';
 
     (() => {
         $http({
